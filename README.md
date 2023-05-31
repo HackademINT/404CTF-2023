@@ -34,6 +34,6 @@ Le 404 CTF est la plus grande compétition de cybersécurité française. Elle e
 
 ## License
 
-À l'exception des logo et des noms des partenaires et du CTF, et à moins qu'une license soit explicité dans le répertoire correspondant, le contenu de ce dépôt est sous [license MIT](LICENSE.md).
+À l'exception des logo et des noms des partenaires et du CTF, et à moins qu'une license soit explicité dans le répertoire correspondant, le contenu de ce dépôt est sous [license MIT](LICENSE).
 
-*With the exception of the logos and names of the CTF's organizers, and unless an other license is stated in the corresponding directory, the content of the repository is provied under the [MIT license](LICENSE.md).*
+*With the exception of the logos and names of the CTF's organizers, and unless an other license is stated in the corresponding directory, the content of the repository is provied under the [MIT license](LICENSE).*
