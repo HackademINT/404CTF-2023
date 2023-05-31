@@ -6,9 +6,9 @@
 </div>
 
 ## Challenges
-- 🟦Pêche au livre
-- 🟩Le Mystère du roman d'amour
-- 🟧Les Mystères du cluster de la Comtesse de Ségur [1/2]
-- 🟧Lettres volatiles
-- 🟥Note de bas de page
-- 🟪Le Cracken
+- 🟦 Pêche au livre
+- 🟩 Le Mystère du roman d'amour
+- 🟧 Les Mystères du cluster de la Comtesse de Ségur [1/2]
+- 🟧 Lettres volatiles
+- 🟥 Note de bas de page
+- 🟪 Le Cracken
