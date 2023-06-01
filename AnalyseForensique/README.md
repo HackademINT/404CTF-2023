@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Analyse forensique - <i>Forensic Analysis</i></h1>
   <p>
-    Le principe de ces challenges de criminalistique numérique est d'analyser les traces laissée par différentes activités sur des systèmes d'informations.
+    Le principe de ces challenges de criminalistique numérique est d'analyser les traces laissées par différentes activités sur des systèmes d'informations.
   </p>
 </div>
 
