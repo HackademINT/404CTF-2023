@@ -19,7 +19,7 @@ Le 404 CTF est la plus grande compétition de cybersécurité française. Elle e
 
 - [Analyse forensique](AnalyseForensique) - *Forensic analysis*
 - [Cloud](Cloud)
-- Cryptanalyse - *Cryptanalysis*
+- [Cryptanalyse](Cryptanalyse) - *Cryptanalysis*
 - [Divers](Divers) - *Miscellaneous*
 - Exploitation de binaires - *Binary exploitation* (Pwn)
 - Intelligence Artificielle - *Artificial Intelligence* (IA)
