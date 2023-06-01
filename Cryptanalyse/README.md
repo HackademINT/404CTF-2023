@@ -1,7 +1,7 @@
 <div align="center">
-  <h1>Analyse forensique - <i>Forensic Analysis</i></h1>
+  <h1>Cryptanalyse - <i>Cryptanalysis</i></h1>
   <p>
-    Le principe de ces challenges de criminalistique numérique est d'analyser les traces laissées par différentes activités sur des systèmes d'informations.
+    Résoudre un challenge de cryptanalyse consiste à analyser des systèmes de chiffrement pour en déceler et en exploiter les vulnérabilités.
   </p>
 </div>
 
