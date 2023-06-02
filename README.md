@@ -30,7 +30,7 @@ Le 404 CTF est la plus grande compétition de cybersécurité française. Elle e
 - [Stéganographie](Steganographie) - *Steganography*
 - [Sécurité matérielle](SecuriteMaterielle) - *Hardware*
 - [Web](Web)
-- Web3
+- [Web3](Web3)
 
 ## License
 
