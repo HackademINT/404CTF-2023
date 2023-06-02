@@ -25,9 +25,6 @@ puissent plus aisément le raisonner ?
 Mot de passe : `T8h2UKEstg`
 Auteur: `Smyler#7078`
 
-## Info de connexion :
-`ssh 404ctf@challenges.hackademint.org -p  31158`
-
 ## Solution :
 
 On peut regarder `.bash_history` pour avoir une idée de ce qui s'est passé :
