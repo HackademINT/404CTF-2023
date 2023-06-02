@@ -27,7 +27,7 @@ Le 404 CTF est la plus grande compétition de cybersécurité française. Elle e
 - [Radio-Fréquences](RadioFrequences) - *Radio Frequencies*
 - [Renseignement en sources ouvertes](RenseignementEnSourcesOuvertes) - *Open Source Intelligence* (OSINT)
 - [Rétro-ingénierie](RetroIngenierie) - *Reverse Engineering*
-- Stéganographie - *Steganography*
+- [Stéganographie](Steganographie) - *Steganography*
 - Sécurité matérielle - *Hardware*
 - Web
 - Web3
