@@ -8,7 +8,7 @@
 ## Challenges
 - 🟦 Le Sot
 - 🟩 Le Cluster de Madame Bovary 
-- 🟧 Harpagon et le magot
+- 🟧 [Harpagon et le magot](HarpagonEtLeMagot)
 - 🟧 Les nuages menaçants 1/3
 - 🟧 Les nuages menaçants 2/3
 - 🟥 Les nuages menaçants 3/3

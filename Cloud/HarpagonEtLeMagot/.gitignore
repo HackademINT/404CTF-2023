@@ -1,0 +1,7 @@
+ubuntu.qcow2
+cloud-config.yaml
+cloud-config.img
+setup-ssh.sh
+
+# IDE files
+.idea
