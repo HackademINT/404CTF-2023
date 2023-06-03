@@ -17,20 +17,20 @@ Le 404 CTF est la plus grande compétition de cybersécurité française. Elle e
 
 ## Categories
 
-- [Analyse forensique](AnalyseForensique) - *Forensic analysis*
-- [Cloud](Cloud)
-- [Cryptanalyse](Cryptanalyse) - *Cryptanalysis*
-- [Divers](Divers) - *Miscellaneous*
-- [Exploitation de binaires](ExploitationDeBinaires) - *Binary exploitation* (Pwn)
-- [Intelligence Artificielle](IntelligenceArtificielle) - *Artificial Intelligence* (IA)
-- [Programmation](Programmation) - *Programming*
-- [Radio-Fréquences](RadioFrequences) - *Radio Frequencies*
-- [Renseignement en sources ouvertes](RenseignementEnSourcesOuvertes) - *Open Source Intelligence* (OSINT)
-- [Rétro-ingénierie](RetroIngenierie) - *Reverse Engineering*
-- [Stéganographie](Steganographie) - *Steganography*
-- [Sécurité matérielle](SecuriteMaterielle) - *Hardware*
-- [Web](Web)
-- [Web3](Web3)
+- 🔎 [Analyse forensique](AnalyseForensique) - *Forensic analysis*
+- ☁️ [Cloud](Cloud)
+- 🔐 [Cryptanalyse](Cryptanalyse) - *Cryptanalysis*
+- ☎️ [Divers](Divers) - *Miscellaneous*
+- ⚙️ [Exploitation de binaires](ExploitationDeBinaires) - *Binary exploitation* (Pwn)
+- 🧠 [Intelligence Artificielle](IntelligenceArtificielle) - *Artificial Intelligence* (IA)
+- 🖥️ [Programmation](Programmation) - *Programming*
+- 📡 [Radio-Fréquences](RadioFrequences) - *Radio Frequencies*
+- 🌎 [Renseignement en sources ouvertes](RenseignementEnSourcesOuvertes) - *Open Source Intelligence* (OSINT)
+- 🔧 [Rétro-ingénierie](RetroIngenierie) - *Reverse Engineering*
+- 🌐 [Stéganographie](Steganographie) - *Steganography*
+- 📟 [Sécurité matérielle](SecuriteMaterielle) - *Hardware*
+- 🌐 [Web](Web)
+- ⛓️ [Web3](Web3)
 
 ## License
 
