@@ -6,6 +6,6 @@
 </div>
 
 ## Challenges
-- 🟦 [L'Inondation](LInnondation)
+- 🟦 [L'Inondation](LInondation)
 - 🟥 Des mots, des mots, des mots
 - 🟪 Codecoquillage du Vélocipède Mécanique
