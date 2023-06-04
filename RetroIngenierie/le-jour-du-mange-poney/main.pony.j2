@@ -1,0 +1,413 @@
+//404CTF{v1Rtu4L_P0ny: fuNCt10n$-g0e$_bRr}
+//Le mot de passe pour valider le binaire est sans le 404CTF{...}
+
+//J'ai appris le langage en faisant le chall, donc pardon pour les abérations éventuelles. 
+
+use "collections"
+
+actor Main
+    new create(env : Env) =>
+        let vm = VM(env)
+
+class VM
+    let prgm : Array[U8 val] val
+    let stack : List[U64]
+    var regs : Array[U64] ref
+
+    var mem : Array[U8] ref
+    var pc : U64
+    var inst : U8
+
+    new create(env : Env) =>
+        prgm = {{ prgm }}
+        stack = List[U64]()
+        regs = [0; 0; 0; 0; 0; 0; 0; 0; 0]
+        mem = Array[U8].init(0, 65536)
+        pc = 0
+        inst = 0
+
+        var cpt : U64
+        cpt = 0
+        try
+            for byte in env.args.apply(1)?.values() do
+                    mem.update(cpt.usize(), byte.u8())?
+                cpt = cpt + 1
+            end
+        end
+        if cpt == 0 then
+            env.out.print("Usage : ./le-jour-du-mange-poney [MOT DE PASSE]")
+            return
+        end
+        
+        launch(env)
+
+    fun ref launch(env : Env) =>
+        while pc < prgm.size().u64() do
+            try
+                inst = prgm.apply(pc.usize())?
+                //env.out.print(pc.string() + " : " + inst.string())
+            end
+
+            if inst == 9 then
+                try
+                    handle_mov_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 90 then
+                try
+                    handle_mov(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 10 then
+                try
+                    handle_xor_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 100 then
+                try
+                    handle_xor(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 11 then
+                try
+                    handle_and_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 110 then
+                try
+                    handle_and(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 12 then
+                try
+                    handle_or_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 120 then
+                try
+                    handle_or(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 13 then
+                try
+                    handle_add_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 130 then
+                try
+                    handle_add(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 14 then
+                try
+                    handle_sub_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 140 then
+                try
+                    handle_sub(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 15 then
+                try
+                    handle_mul_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 150 then
+                try
+                    handle_mul(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 16 then
+                try
+                    handle_div_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 160 then
+                try
+                    handle_div(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 17 then
+                try
+                    handle_push_imm(prgm.apply(pc.usize() + 1)?)
+                end
+                pc = pc + 2
+            elseif inst == 170 then
+                try
+                    handle_push(prgm.apply(pc.usize() + 1)?)
+                end
+                pc = pc + 2
+            elseif inst == 18 then
+                try
+                    handle_pop(prgm.apply(pc.usize() + 1)?)
+                end
+                pc = pc + 2
+            elseif inst == 19 then
+                try
+                    handle_mov_to_mem_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 190 then
+                try
+                    handle_mov_to_mem(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 20 then
+                try
+                    handle_jmp_abs(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+            elseif inst == 21 then
+                try
+                    handle_jz_abs(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?, prgm.apply(pc.usize() + 3)?)
+                end
+            elseif inst == 22 then
+                try
+                    handle_jnz_abs(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?, prgm.apply(pc.usize() + 3)?)
+                end
+            elseif inst == 23 then
+                try
+                    handle_jge_abs_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?, prgm.apply(pc.usize() + 3)?, prgm.apply(pc.usize() + 4)?)
+                end
+            elseif inst == 24 then
+                try
+                    handle_jle_abs_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?, prgm.apply(pc.usize() + 3)?, prgm.apply(pc.usize() + 4)?)
+                end
+            elseif inst == 25 then
+                try
+                    handle_je_abs_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?, prgm.apply(pc.usize() + 3)?, prgm.apply(pc.usize() + 4)?)
+                end
+            elseif inst == 26 then
+                try
+                    handle_jne_abs_imm(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?, prgm.apply(pc.usize() + 3)?, prgm.apply(pc.usize() + 4)?)
+                end
+            elseif inst == 126 then
+                try
+                    handle_jne_abs(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?, prgm.apply(pc.usize() + 3)?, prgm.apply(pc.usize() + 4)?)
+                end
+            elseif inst == 27 then
+                handle_ret()
+            elseif inst == 28 then
+                try
+                    handle_call(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+            elseif inst == 29 then
+                try
+                    handle_read_mem(prgm.apply(pc.usize() + 1)?, prgm.apply(pc.usize() + 2)?)
+                end
+                pc = pc + 3
+            elseif inst == 254 then
+                try
+                    handle_print_string(prgm.apply(pc.usize() + 1)?, env.out)
+                end
+                pc = pc + 2
+            elseif inst == 255 then
+                return
+            end
+        end
+
+    fun ref handle_mov_imm(reg : U8, imm : U8) =>
+        try
+            regs.update(reg.usize(), imm.u64())?
+        end
+
+    fun ref handle_mov(reg1 : U8, reg2 : U8) =>
+        try
+            regs.update(reg1.usize(), regs.apply(reg2.usize())?)?
+        end 
+
+    fun ref handle_mov_to_mem_imm(add : U8, imm : U8) =>
+        try
+            mem.update(regs.apply(add.usize())?.usize(), imm)?
+        end
+
+    fun ref handle_mov_to_mem(add : U8, reg : U8) =>
+        try
+            mem.update(regs.apply(add.usize())?.usize(), regs.apply(reg.usize())?.u8())?
+        end
+
+    fun ref handle_read_mem(reg : U8, add : U8) =>
+        try
+            regs.update(reg.usize(), mem.apply(regs.apply(add.usize())?.usize())?.u64())?
+        end
+
+    fun ref handle_xor_imm(reg : U8, imm : U8) =>
+        try
+            regs.update(reg.usize(), regs.apply(reg.usize())?.op_xor(imm.u64()))?
+        end
+
+    fun ref handle_xor(reg1 : U8, reg2 : U8) =>
+        try
+            regs.update(reg1.usize(), regs.apply(reg1.usize())?.op_xor(regs.apply(reg2.usize())?))?
+        end 
+    
+    fun ref handle_and_imm(reg : U8, imm : U8) =>
+        try
+            regs.update(reg.usize(), regs.apply(reg.usize())?.op_and(imm.u64()))?
+        end
+
+    fun ref handle_and(reg1 : U8, reg2 : U8) =>
+        try
+            regs.update(reg1.usize(), regs.apply(reg1.usize())?.op_and(regs.apply(reg2.usize())?))?
+        end 
+
+    fun ref handle_or_imm(reg : U8, imm : U8) =>
+        try
+            regs.update(reg.usize(), regs.apply(reg.usize())?.op_or(imm.u64()))?
+        end
+
+    fun ref handle_or(reg1 : U8, reg2 : U8) =>
+        try
+            regs.update(reg1.usize(), regs.apply(reg1.usize())?.op_or(regs.apply(reg2.usize())?))?
+        end 
+
+    fun ref handle_add_imm(reg : U8, imm : U8) =>
+        try
+            regs.update(reg.usize(), regs.apply(reg.usize())?.add(imm.u64()))?
+        end
+
+    fun ref handle_add(reg1 : U8, reg2 : U8) =>
+        try
+            regs.update(reg1.usize(), regs.apply(reg1.usize())?.add(regs.apply(reg2.usize())?))?
+        end 
+
+    fun ref handle_sub_imm(reg : U8, imm : U8) =>
+        try
+            regs.update(reg.usize(), regs.apply(reg.usize())?.sub(imm.u64()))?
+        end
+
+    fun ref handle_sub(reg1 : U8, reg2 : U8) =>
+        try
+            regs.update(reg1.usize(), regs.apply(reg1.usize())?.sub(regs.apply(reg2.usize())?))?
+        end 
+
+    fun ref handle_mul_imm(reg : U8, imm : U8) =>
+        try
+            regs.update(reg.usize(), regs.apply(reg.usize())?.mul(imm.u64()))?
+        end
+
+    fun ref handle_mul(reg1 : U8, reg2 : U8) =>
+        try
+            regs.update(reg1.usize(), regs.apply(reg1.usize())?.mul(regs.apply(reg2.usize())?))?
+        end 
+
+    fun ref handle_div_imm(reg : U8, imm : U8) =>
+        try
+            regs.update(reg.usize(), regs.apply(reg.usize())?.div(imm.u64()))?
+        end
+
+    fun ref handle_div(reg1 : U8, reg2 : U8) =>
+        try
+            regs.update(reg1.usize(), regs.apply(reg1.usize())?.div(regs.apply(reg2.usize())?))?
+        end 
+    
+    fun ref handle_push_imm(imm : U8) =>
+        try
+            stack.push(imm.u64())
+            regs.update(4, regs.apply(4)? + 1)?
+        end
+
+    fun ref handle_push(reg : U8) =>
+        try
+            stack.push(regs.apply(reg.usize())?)
+            regs.update(4, regs.apply(4)? + 1)?
+        end
+
+    fun ref handle_pop(reg : U8) =>
+        try
+            regs.update(reg.usize(), stack.pop()?)?
+            regs.update(4, regs.apply(4)? - 1)?
+        end
+
+    fun ref handle_jmp_abs(addrH : U8, addrL : U8) =>
+        pc = addrL.u64() + (256 * addrH.u64())
+
+    fun ref handle_jz_abs(reg : U8, addrH : U8, addrL : U8) =>
+        try
+            if regs.apply(reg.usize())? == 0 then
+                pc = addrL.u64() + (256 * addrH.u64())
+            else
+                pc = pc + 4
+            end
+        end
+    
+    fun ref handle_jnz_abs(reg : U8, addrH : U8, addrL : U8) =>
+        try
+            if regs.apply(reg.usize())? != 0 then
+                pc = addrL.u64() + (256 * addrH.u64())
+            else
+                pc = pc + 4
+            end
+        end
+
+    fun ref handle_jge_abs_imm(reg : U8, cmp : U8, addrH : U8, addrL : U8) =>
+        try
+            if regs.apply(reg.usize())? >= cmp.u64() then
+                pc = addrL.u64() + (256 * addrH.u64())
+            else
+                pc = pc + 5
+            end
+        end
+
+    fun ref handle_jle_abs_imm(reg : U8, cmp : U8, addrH : U8, addrL : U8) =>
+        try
+            if regs.apply(reg.usize())? <= cmp.u64() then
+                pc = addrL.u64() + (256 * addrH.u64())
+            else
+                pc = pc + 5
+            end
+        end
+
+    fun ref handle_je_abs_imm(reg : U8, cmp : U8, addrH : U8, addrL : U8) =>
+        try
+            if regs.apply(reg.usize())? == cmp.u64() then
+                pc = addrL.u64() + (256 * addrH.u64())
+            else
+                pc = pc + 5
+            end
+        end
+
+    fun ref handle_jne_abs_imm(reg : U8, cmp : U8, addrH : U8, addrL : U8) =>
+        try
+            if regs.apply(reg.usize())? != cmp.u64() then
+                pc = addrL.u64() + (256 * addrH.u64())
+            else
+                pc = pc + 5
+            end
+        end
+
+    fun ref handle_jne_abs(reg1 : U8, reg2 : U8, addrH : U8, addrL : U8) =>
+        try
+            if regs.apply(reg1.usize())? != regs.apply(reg2.usize())? then
+                pc = addrL.u64() + (256 * addrH.u64())
+            else
+                pc = pc + 5
+            end
+        end
+
+    fun ref handle_ret() =>
+        try
+            pc = stack.pop()?
+            regs.update(4, regs.apply(4)? - 1)?
+        end
+
+    fun ref handle_call(addrH : U8, addrL : U8) =>
+        try
+            stack.push(pc + 3)
+            regs.update(4, regs.apply(4)? + 1)?
+            pc = addrL.u64() + (256 * addrH.u64())
+        end
+
+    fun ref handle_print_string(add_reg : U8, out : OutStream) =>
+        try
+            var cpt : U64
+            var byte : U8
+            cpt = 0
+            byte = mem.apply((regs.apply(add_reg.usize())?.u64()+cpt).usize())?
+            while byte != 0 do
+                out.write([byte])
+                cpt = cpt + 1
+                byte = mem.apply((regs.apply(add_reg.usize())?.u64()+cpt).usize())?
+            end
+            out.write("\n")
+        end
