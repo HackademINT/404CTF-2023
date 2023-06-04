@@ -1,0 +1,8 @@
+FROM alpine/socat
+
+RUN adduser ctf --disabled-password
+COPY ./wasmtime /opt/wasmtime
+COPY ./main.wasm /home/ctf/main.wasm
+COPY ./flag.txt /home/ctf/flag.txt
+WORKDIR /home/ctf
+CMD ["tcp-listen:4000,reuseaddr,fork", "exec:'/bin/sh -c \"/opt/wasmtime --dir=. /home/ctf/main.wasm 2>&1\"'"]
