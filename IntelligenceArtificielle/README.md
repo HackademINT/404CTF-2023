@@ -8,6 +8,11 @@
       Artificial intelligence is all the rage! But do you really know how to use it? These challenges require you to use artificial intelligence techniques, and even know how to attack them! I plan to add more resources and refine my WU over the coming weeks. Don't hesitate to contact me on discord if you'd like more information. Sckathach#9336 on the 404 CTF's official discord.
     </i>
   </p>
+  <p>
+    <i>
+      Soon: challenges' statements in english 
+    </i>
+  </p>
 </div>
 
 ## Challenges
