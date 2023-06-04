@@ -1,0 +1,63 @@
+#include "stage{{ n }}.h"
+{% if rickroll %}
+#include "data/au.h"
+#include "data/gif.h"
+{% endif %}
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/syscall.h>
+#include <sys/ptrace.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+#define __NR_memfd_create 319
+#define MFD_CLOEXEC 1
+
+static inline int memfd_create(const char *name, unsigned int flags) {
+  return syscall(__NR_memfd_create, name, flags);
+}
+
+{% if rickroll %}
+int rick(int r, int a){
+    if (r % 2 == 0){
+        return rickroll_gif[a % rickroll_gif_len];
+    }
+    else {
+        rickroll_au[a % rickroll_au_len];
+    }
+}
+{% endif %}
+
+int main(int argc, char **argv, char **envp) {
+  int pid = fork();
+  if (pid == -1){
+    printf("Error\n");
+    return -1;
+  }
+  if(pid == 0){
+  int t = ptrace(PTRACE_TRACEME, 0, 0);
+  int u = ptrace(PTRACE_TRACEME, 0, 0);
+  if (t != 0){
+
+    int d = -1;
+
+{% if rickroll %}
+    d = rick(argc, getpid());
+{% endif %}
+
+    printf(":(\n");
+    return d;
+  }
+  int fd = memfd_create("", MFD_CLOEXEC);
+  for (int i = 0; i < stages_stage{{ n }}_len; i++){
+    stages_stage{{ n }}[i] ^= (stages_key{{ n }}[i % stages_key{{n}}_len] + 1 + t + u);
+  }
+  write(fd, stages_stage{{ n }}, stages_stage{{ n }}_len);
+  fexecve(fd, argv, envp);
+  return 0;
+  } else {
+    wait(0);
+    return 0;
+  }
+}
