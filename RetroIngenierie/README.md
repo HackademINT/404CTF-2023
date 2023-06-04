@@ -11,6 +11,6 @@
 - 🟩 [Encore une mise à jour !](encore-une-mise-a-jour)
 - 🟧 Les Mystères du cluster de la Comtesse de Ségur [2/2]
 - 🟧 [Introspection](introspection)
-- 🟥 Jouer ou ne pas jouer ?
+- 🟥 [Jouer ou ne pas jouer ?](JouerOuNePasJouer)
 - 🟪 Décortique mon Vélocipède Mécanique
 - 🟪 [Le Jour du mange poney](le-jour-du-mange-poney)
