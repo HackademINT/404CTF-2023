@@ -8,9 +8,9 @@
 ## Challenges
 - 🟦 Le Divin Crackme
 - 🟩 [L'Inspiration en images](LInspirationEnImages)
-- 🟩 Encore une mise à jour !
+- 🟩 [Encore une mise à jour !](encore-une-mise-a-jour)
 - 🟧 Les Mystères du cluster de la Comtesse de Ségur [2/2]
-- 🟧 Introspection
+- 🟧 [Introspection](introspection)
 - 🟥 Jouer ou ne pas jouer ?
 - 🟪 Décortique mon Vélocipède Mécanique
-- 🟪 Le Jour du mange poney
+- 🟪 [Le Jour du mange poney](le-jour-du-mange-poney)
