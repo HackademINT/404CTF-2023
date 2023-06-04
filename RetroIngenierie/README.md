@@ -7,7 +7,7 @@
 
 ## Challenges
 - 🟦 Le Divin Crackme
-- 🟩 L'Inspiration en images
+- 🟩 [L'Inspiration en images](LInspirationEnImages)
 - 🟩 Encore une mise à jour !
 - 🟧 Les Mystères du cluster de la Comtesse de Ségur [2/2]
 - 🟧 Introspection

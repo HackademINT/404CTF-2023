@@ -6,9 +6,9 @@
 </div>
 
 ## Challenges
-- 🟦 Un courrier suspect
+- 🟦 [Un courrier suspect](UnCourrierSuspect)
 - 🟩 À la trace
-- 🟩 Un réveil difficile
+- 🟩 [Un réveil difficile](UnReveilDifficile)
 - 🟧 L'Être ou le néant
 - 🟥 0x0418 bTpot
 - 🟥 Des tetrominos qui choient
