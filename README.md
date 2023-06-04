@@ -11,11 +11,11 @@
 
 ## Le 404 CTF
 
-Le 404 CTF est la plus grande compétition de cybersécurité française. Elle est coorganisée par [la DGSE](https://www.dgse.gouv.fr), [Télécom SudParis](https://www.telecom-sudparis.eu), [HackademINT](https://www.hackademint.org), [OVHcloud](https://www.ovhcloud.com) et [Vivatechnology](https://vivatechnology.com). L'édition 2023 s'est tenue du 12 main au 4 juin 2023 et a rassemblé près de 3000 participants autours de la centaine de challenges conçue par HackademINT. En savoir plus sur [le site du 404 CTF](https://www.404ctf.fr).
+Le 404 CTF est la plus grande compétition de cybersécurité française. Elle est coorganisée par [la DGSE](https://www.dgse.gouv.fr), [Télécom SudParis](https://www.telecom-sudparis.eu), [HackademINT](https://www.hackademint.org), [OVHcloud](https://www.ovhcloud.com) et [Viva Technology](https://vivatechnology.com). L'édition 2023 s'est tenue du 12 main au 4 juin 2023 et a rassemblé près de 3000 participants autours de la centaine de challenges conçus par HackademINT. En savoir plus sur [le site du 404 CTF](https://www.404ctf.fr).
 
-*The 404 CTF is France's largest cybersecurity competition. It is organized jointly by the [DGSE](https://www.dgse.gouv.fr), [Télécom SudParis](https://www.telecom-sudparis.eu), [HackademINT](https://www.hackademint.org), [OVHcloud](https://www.ovhcloud.com) and [Vivatechnology](https://vivatechnology.com). The 2023 edition took place from May 12 to June 4 2023 and gathered about 3000 competitors around 100 challenges designed by HackadmINT. Learn more on [the 404 CTF's website](https://www.404ctf.fr).*
+*The 404 CTF is France's largest cybersecurity competition. It is organized jointly by the [DGSE](https://www.dgse.gouv.fr), [Télécom SudParis](https://www.telecom-sudparis.eu), [HackademINT](https://www.hackademint.org), [OVHcloud](https://www.ovhcloud.com) and [Viva Technology](https://vivatechnology.com). The 2023 edition took place from May 12 to June 4 2023 and gathered about 3000 competitors around 100 challenges designed by HackademINT. Learn more on [the 404 CTF's website](https://www.404ctf.fr).*
 
-## Categories
+## Catégories
 
 - 🔎 [Analyse forensique](AnalyseForensique) - *Forensic analysis*
 - ☁️ [Cloud](Cloud)
@@ -32,8 +32,8 @@ Le 404 CTF est la plus grande compétition de cybersécurité française. Elle e
 - 🌐 [Web](Web)
 - ⛓️ [Web3](Web3)
 
-## License
+## Licence
 
-À l'exception des logo et des noms des partenaires et du CTF, et à moins qu'une autre license soit explicitée dans le répertoire correspondant, le contenu de ce dépôt est sous [license MIT](LICENSE).
+À l'exception des logos et des noms des partenaires et du CTF, et à moins qu'une autre licence soit explicitée dans le répertoire correspondant, le contenu de ce dépôt est sous [licence MIT](LICENSE).
 
-*With the exception of the logos and names of the CTF's organizers and of the CTF, and unless an other license is stated in the corresponding directory, the content of the repository is provied under the [MIT license](LICENSE).*
+*With the exception of the logos and names of the CTF's organizers and of the CTF, and unless another license is stated in the corresponding directory, the content of the repository is provided under the [MIT license](LICENSE).*
