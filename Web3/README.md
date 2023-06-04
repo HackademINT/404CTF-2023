@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Web3</h1>
   <p>
-    Le but des challenges de web3 est d'exploité des vulnérabilités présentent dans des applications basées sur des technologies blockchain.
+    Le but des challenges de web3 est d'exploiter des vulnérabilités présentes dans des applications basées sur des technologies décentralisées.
   </p>
 </div>
 
