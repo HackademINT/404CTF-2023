@@ -1,0 +1,3 @@
+24p6UjIlgyu8uEC5V48f3FmColpW2SfS9voGI/ybfEBCEAibHEl2tbQNFxei2Frf/VE10FqN8EiGy80SLvMwnzajiGJz5z22SeYhwwMLByHMev8W691hXtKh826znmBm4d0o6LKKJ8mC+2NkaCgtr4FiwyTo+mSE50Dtfwa0r2sQXMzKLpR+8xOUO4uxA6SpB2zNA+jUlmaGkO3lWyJzQvsx9JRqERiPdE5pxsvRLDZ42kX6oteGtE8rBV/gkz/Vslgxe5axNocEO9Vpmy5JbfzY2CyLX6232Uoe+y7sAtMW+LJudtmvxiazzH7nduoAhyoimJDXj3OinBTCzpDhROVtP1XNPaEZc/yzYngnkvdWsKz+XmvGEuZRtys1cFiE
+
+openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 250000 -nosalt -in message.txt -out chiffré.txt
