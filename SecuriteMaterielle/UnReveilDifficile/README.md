@@ -30,6 +30,9 @@ OU
   
 ## Description des fichiers  
   
+### Dans la racine  
 `réveil.circ` : Le fichier contenant le chall, à ouvrir avec logisim.  
-`flagInject` et son code source `flagInject.cpp` compilé avec `make flagInject` grâce au `Makefile` réorganise un flag donné sous une forme affichable par un 7 segments (une partie de LUT code 7 segments/char est fournie dans `PartialLUT.txt`) pour le placer dans le bon ordre dans la ROM 1 (celle du haut) et la ROM 2 (celle du bas (surprenant, non ?))  
-Il génère deux fichiers rom1.txt et rom2.txt qui peuvent directement être chargés dans les bonnes ROM dans Logisim
+### Dans `sources` :  
+`flagInject` : binaire compilé depuis son code source `flagInject.cpp` avec `make flagInject` grâce au `Makefile`. Réorganise un flag donné en hexadécimal sous une forme affichable par un 7 segments pour le placer dans le bon ordre dans la ROM 1 (celle du haut) et la ROM 2 (celle du bas (surprenant, non ?))  
+Il génère deux fichiers `rom1.txt` et `rom2.txt` qui peuvent directement être chargés dans les bonnes ROM dans Logisim
+`PartialLUT.txt` contient une partie de LUT (i.e. table de correspondance) code 7 segments <-> char  
