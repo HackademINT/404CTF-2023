@@ -2,9 +2,6 @@
 
 ## Intitulé
 
-![Gravure de l'Avare](https://upload.wikimedia.org/wikipedia/commons/0/07/Harpagon_Pouget.jpg)
-<br>
-
 <h3 style="text-align: center">La Flèche.</h3>
 <div style="text-align: center; font-style: italic">Brisant le quatrième mur</div>
 
@@ -29,14 +26,7 @@ Auteur: `Smyler#7078`
 
 On peut regarder `.bash_history` pour avoir une idée de ce qui s'est passé :
 
-```
-harpagon@jardin:~$ cat .bash_history 
-.bash_history              .profile
-.bash_logout               .ssh/
-.bashrc                    .sudo_as_admin_successful
-.cache/                    values.yaml
-.gnupg/                    vaultwarden/
-.kube/                     
+```sh
 harpagon@jardin:~$ cat .bash_history 
 curl -sfL https://get.k3s.io | sh -
 echo 'export KUBECONFIG=.kube/config' > .bashrc
@@ -58,16 +48,16 @@ helm install cassette vaultwarden --values values.yaml --set ingress.enabled=tru
 helm upgrade cassette vaultwarden --values values.yaml --set ingress.enabled=true
 ```
 
-Donc un bitwarden a été déployé avec Helm, puis redéployé après que les valeurs ont été une valeur a été changée.
+Donc un bitwarden a été déployé avec Helm, puis redéployé après que'une valeur ait été changée.
 En regardant le fichier des valeurs, une ligne a un commentaire :
 
 ```
 adminToken: "Yh6UxUhujjl4UqBrIJFtsWM8xTbvvT" # Bas les pattes, voleur, mon secret ne se trouve plus ici !
 ```
 
-On peut retrouver l'ancienne valeur via l'historique des release helm :
+On peut retrouver l'ancienne valeur via l'historique des release helm, qui est stocké dans un secret :
 
-```
+```yaml
 harpagon@jardin:~$ kubectl get secrets
 NAME                             TYPE                 DATA   AGE
 cassette-vaultwarden             Opaque               3      109m
@@ -75,9 +65,23 @@ sh.helm.release.v1.cassette.v1   helm.sh/release.v1   1      109m
 sh.helm.release.v1.cassette.v2   helm.sh/release.v1   1      107m
 ```
 
-On peut récupérer le yaml de la première release avec `kubectl get secret sh.helm.release.v1.cassette.v1 -o yaml,
+Si on veut voir à quoi cela ressemble à la main, on peut récupérer le yaml de la première release avec `kubectl get secret sh.helm.release.v1.cassette.v1 -o yaml`,
 qui contient un gros bloque de base64 avec toutes les données de la précédente release.
-
 En passant ce bloc deux fois dans un décodeur de base 64 puis en le décompressant avec GZIP, on obtient du texte lisible.
 Le flag s'y trouve, il apparaît à plusieurs endroits.
-Il est inversé pour éviter que `sudo grep -a 404CTF /dev/vda` donne le flag.
+
+Pour obtenir le flag de manière un peu plus propre, on peut demander à Helm de faire tout ça pour nous :
+
+```yaml
+harpagon@jardin:~$ helm get values --revision=1 cassette
+USER-SUPPLIED VALUES:
+adminToken: '}em1tciv_7s3_l1_7n0d_u@3lf_1_7s3_3c1r4v@l{FTC404'
+affinity: {}
+database:
+  dbName: ""
+  host: cassette.local
+...
+```
+
+On trouve ainsi le flag.
+Il est inversé pour éviter que `sudo grep -a 404CTF /dev/vda` ne donne le flag en quelques secondes.

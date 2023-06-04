@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Stéganographie - <i>Steganography</i></h1>
   <p>
-    La séganographie est l'art de cacher des messages dans un contenant paraissant innocent.
+    La stéganographie est l'art de cacher des messages dans un contenant paraissant innocent.
   </p>
 </div>
 

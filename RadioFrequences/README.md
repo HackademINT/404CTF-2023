@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Radio-Fréquences - <i>Radio Frequencies</i></h1>
   <p>
-    Dans les challenges de radio-fréquence, il vous faut analyser des captures radio pour faire parler leurs secrets.
+    Dans les challenges de radio-fréquences, il vous faut analyser des captures radio pour faire parler leurs secrets.
   </p>
 </div>
 
