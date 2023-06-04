@@ -15,9 +15,7 @@ C'est alors que cet individu névrosé qu'est Jean-Paul Sat entre en trombe.
 Pour les caractères ambigüs, on considèrera par ordre d'importance le chiffre, la majuscule, puis en dernier la minuscule.
   
 Auteur : `Jauttaro Coudjau#0911`
-
-<p class="space">&nbsp;</p>
-  
+    
 ### Fichier
 `réveil.circ`  
   
