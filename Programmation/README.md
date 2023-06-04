@@ -8,4 +8,4 @@
 ## Challenges
 - 🟦 [L'Inondation](LInondation)
 - 🟥 Des mots, des mots, des mots
-- 🟪 Codecoquillage du Vélocipède Mécanique
+- 🟪 [Codecoquillage du Vélocipède Mécanique](codecoquillage-du-velocipede)

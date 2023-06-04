@@ -12,5 +12,5 @@
 - 🟧 Les Mystères du cluster de la Comtesse de Ségur [2/2]
 - 🟧 [Introspection](introspection)
 - 🟥 [Jouer ou ne pas jouer ?](JouerOuNePasJouer)
-- 🟪 Décortique mon Vélocipède Mécanique
+- 🟪 [Décortique mon Vélocipède Mécanique](decortique-mon-velocipede)
 - 🟪 [Le Jour du mange poney](le-jour-du-mange-poney)
