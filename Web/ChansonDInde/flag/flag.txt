@@ -1,0 +1,11 @@
+Marguerite Duras (Marguerite Donnadieu) est l'une des plus grandes autrices françaises du XXe siècle.
+Ses romans comme "Un barrage contre le Pacifique" ou "L'Amant" (prix Goncourt 1984) rencontrent un immense succès public. 
+Elle ne se limite pas à un seul genre littéraire et s'essaie également au théâtre et au cinéma.
+
+India Song est une pièce de théâtre qu'elle écrit en 1973 et adapte pour le grand écran en 1975.
+Les personnages de ce film ne parlent jamais en "son synchrone in" : leurs paroles ne s'accompagnent pas de mouvement des lèvres. 
+Duras désynchronise "le film des voix" du "film des images" dans une proposition unique en son genre.
+
+Ce challenge a été inspiré par cette vidéo : https://youtu.be/2FlINrAF_Co
+
+404CTF{v01la_Ind14_S0ng_s3_tErm1n3}

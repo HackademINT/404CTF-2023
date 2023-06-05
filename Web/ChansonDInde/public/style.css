@@ -1,0 +1,181 @@
+.main-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  z-index: 5;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  color: white;
+  width: 60%;
+  min-width: 400px;
+  max-width: 820px;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  text-rendering: optimizeLegibility;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-fon-smoothing: grayscale;
+}
+
+form {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  margin: 1rem 0;
+}
+
+form input[type="text"] {
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  text-align: center;
+  padding: 0.2rem 1rem;
+  margin: 0 2rem 0 0;
+}
+
+form input[type="text"]:focus {
+  outline: none;
+}
+
+form button[type="submit"] {
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  position: relative;
+}
+
+form button[type="submit"]:before {
+  content: ">";
+  width: 10px;
+  height: 10px;
+  color: white;
+  opacity: 0;
+  position: absolute;
+  left: -0.7rem;
+  transition: all 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  transform: translateX(0.2rem);
+}
+
+form button[type="submit"]:hover:before {
+  opacity: 1;
+}
+
+form blockquote p:first-of-type:before {
+  content: "\201c";
+  position: absolute;
+  left: -0.5em;
+}
+
+blockquote p:last-of-type:after {
+  content: "\201d";
+  position: absolute;
+}
+
+blockquote footer {
+  position: relative;
+}
+
+blockquote footer:before {
+  content: "–";
+  position: absolute;
+  left: -0.6em;
+}
+
+@media screen and (max-width: 1600px) {
+  blockquote {
+    font-size: 1.2rem;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  blockquote {
+    font-size: 1.2rem;
+  }
+}
+
+@media all and (max-width: 600px) {
+  blockquote {
+    font-size: 18px;
+  }
+  blockquote {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+.action {
+  margin-top: 5rem;
+}
+
+.action a {
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  padding: 1rem;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.action a:hover {
+  opacity: 0.8;
+  padding: 1rem 1.6rem;
+}
+
+.player-control {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+  margin-left: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.player-control:hover {
+  opacity: 0.5;
+}
+
+.player-control.pause i {
+  background-image: url(/pause.png);
+}
+
+.player-control i {
+  background-image: url(/play.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+h1,
+h2 {
+  color: white;
+  text-align: center;
+}
+
+.advice {
+  margin: 4rem 0 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}

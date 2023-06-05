@@ -1,0 +1,11 @@
+version: "3"
+services:
+  node:
+    build: .
+    ports:
+      - 3000:3000
+    read_only: true
+    security_opt:
+      - "no-new-privileges:true"
+      - "apparmor=unconfined"
+      - "seccomp=unconfined"

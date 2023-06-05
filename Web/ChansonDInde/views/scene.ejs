@@ -1,0 +1,45 @@
+<%- include('partials/header'); -%>
+<input class="toggler" type="checkbox" id="sepia" /><label for="sepia"></label>
+<div class="main-content">
+  <form action="/scene" method="post">
+    <input
+      name="url"
+      type="text"
+      placeholder="Lien vers un fichier audio"
+      required
+    />
+    <button type="submit">Monter le film</button>
+    <% if (locals.url) { %>
+    <span id="player-control" class="player-control" onclick="togglePlay()"
+      ><i></i
+    ></span>
+    <% } %>
+  </form>
+</div>
+
+<div class="content">
+  <div class="film">
+    <video autoplay muted loop id="backgroundVideo">
+      <source src="/film.mp4" type="video/mp4" />
+    </video>
+    <div class="effect">
+      <div class="grain"></div>
+    </div>
+  </div>
+</div>
+
+<% if (locals.url) { %>
+<audio id="user-audio" hidden>
+  <source src="<%= url %>" />
+  Votre navigateur ne supporte pas le tag audio
+</audio>
+<script>
+  let myAudio = document.getElementById("user-audio");
+  let control = document.getElementById("player-control");
+
+  function togglePlay() {
+    control.classList.toggle("pause");
+    return myAudio.paused ? myAudio.play() : myAudio.pause();
+  }
+</script>
+<% } %> <%- include('partials/footer'); -%>

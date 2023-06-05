@@ -1,0 +1,22 @@
+{
+  "name": "chanson-d-inde",
+  "version": "1.0.0",
+  "description": "Hommage à Marguerite Duras et au film India Song.",
+  "author": "Artamis <artamis@hackademint.org>",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.6",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.22"
+  }
+}
