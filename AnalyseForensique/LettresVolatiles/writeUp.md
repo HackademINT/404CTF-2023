@@ -18,8 +18,9 @@ qui requiert un mot de passe
 ### Trouver le dump mémoire
 On trouve un dossier jumpbag qui après des recherche sur internet, on apprend sert à dump la ram. On y trouve un fichier .raw
 
-### Trouver le mot de passe dans le dump
+## Trouver le mot de passe dans le dump
 `vol2 -f <image.raw> imageinfo`
+
 `vol2 -f <image.raw> --profile Win7SP1 clipboard`
 
 Toute tentative d'analyser la mémoire liée à firefox mènera à des dead ends, au mieux des private jokes.
