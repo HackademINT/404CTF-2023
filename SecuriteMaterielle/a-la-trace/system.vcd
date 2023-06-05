@@ -1,0 +1,466 @@
+$date
+    Mon Mar 27 14:30:33 2023
+$end
+$version
+    MyHDL 0.11
+$end
+$timescale
+    1ns
+$end
+
+$scope module system $end
+$var reg 1 ! enable $end
+$var reg 1 " check_f $end
+$var reg 1 # clk $end
+$scope module bus $end
+$var real 1 $ bus(0) $end
+$var real 1 % bus(1) $end
+$var real 1 & bus(2) $end
+$var real 1 ' bus(3) $end
+$var real 1 ( bus(4) $end
+$upscope $end
+$scope module acc_flag0 $end
+$var reg 1 ) input $end
+$var real 1 $ output $end
+$var reg 1 " write $end
+$var reg 1 ! enable $end
+$var reg 1 * empty $end
+$var reg 1 # clk $end
+$var reg 4 + pos $end
+$scope module data $end
+$var real 1 , data(0) $end
+$var real 1 - data(1) $end
+$var real 1 . data(2) $end
+$var real 1 / data(3) $end
+$var real 1 0 data(4) $end
+$var real 1 1 data(5) $end
+$var real 1 2 data(6) $end
+$var real 1 3 data(7) $end
+$var real 1 4 data(8) $end
+$var real 1 5 data(9) $end
+$var real 1 6 data(10) $end
+$var real 1 7 data(11) $end
+$var real 1 8 data(12) $end
+$var real 1 9 data(13) $end
+$var real 1 : data(14) $end
+$var real 1 ; data(15) $end
+$upscope $end
+$upscope $end
+$scope module acc0 $end
+$var real 1 ( input $end
+$var real 1 < output $end
+$var reg 1 ! write $end
+$var reg 1 ! enable $end
+$var reg 1 = empty $end
+$var reg 1 " full $end
+$var reg 1 # clk $end
+$var reg 4 > pos $end
+$scope module data_out $end
+$var real 1 ? data_out(0) $end
+$var real 1 @ data_out(1) $end
+$var real 1 A data_out(2) $end
+$var real 1 B data_out(3) $end
+$var real 1 C data_out(4) $end
+$var real 1 D data_out(5) $end
+$var real 1 E data_out(6) $end
+$var real 1 F data_out(7) $end
+$var real 1 G data_out(8) $end
+$var real 1 H data_out(9) $end
+$var real 1 I data_out(10) $end
+$var real 1 J data_out(11) $end
+$var real 1 K data_out(12) $end
+$var real 1 L data_out(13) $end
+$var real 1 M data_out(14) $end
+$var real 1 N data_out(15) $end
+$upscope $end
+$upscope $end
+$scope module dff0 $end
+$var real 1 $ input $end
+$var real 1 % output1 $end
+$var real 1 & output2 $end
+$var reg 1 # clk $end
+$var real 1 O memory $end
+$upscope $end
+$scope module xor0 $end
+$var real 1 % a $end
+$var real 1 & b $end
+$var real 1 ' z $end
+$upscope $end
+$scope module add0 $end
+$var real 1 & a $end
+$var real 1 ' b $end
+$var real 1 ( z $end
+$upscope $end
+$scope module NOT0 $end
+$var reg 1 " i $end
+$var reg 1 ! not_i $end
+$upscope $end
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+1!
+0"
+0#
+s0 $
+s0 %
+s0 &
+s0 '
+s0 (
+0)
+0*
+b0000 +
+s0x53 ,
+s0x75 -
+s0x69 .
+s0x73 /
+s0x5f 0
+s0x74 1
+s0x75 2
+s0x5f 3
+s0x6d 4
+s0x61 5
+s0x5f 6
+s0x74 7
+s0x72 8
+s0x61 9
+s0x63 :
+s0x65 ;
+s0x0 <
+0=
+b0000 >
+s0x0 ?
+s0x0 @
+s0x0 A
+s0x0 B
+s0x0 C
+s0x0 D
+s0x0 E
+s0x0 F
+s0x0 G
+s0x0 H
+s0x0 I
+s0x0 J
+s0x0 K
+s0x0 L
+s0x0 M
+s0x0 N
+s0 O
+$end
+#10
+1#
+s83 $
+s0x0 ,
+b0001 +
+b0001 >
+#20
+0#
+1=
+#30
+1#
+s83 %
+s83 O
+b0010 >
+s117 $
+s0x0 -
+b0010 +
+s83 '
+s83 (
+#40
+0#
+#50
+1#
+s105 $
+s0x0 .
+b0011 +
+s0x53 ?
+b0011 >
+s83 &
+s117 %
+s117 O
+s38 '
+s166 (
+s121 (
+#60
+0#
+0=
+#70
+1#
+s117 &
+s105 %
+s105 O
+s0x79 @
+b0100 >
+s115 $
+s0x0 /
+b0100 +
+s28 '
+s155 (
+s145 (
+#80
+0#
+#90
+1#
+s95 $
+s0x0 0
+b0101 +
+s0x91 A
+b0101 >
+s105 &
+s115 %
+s115 O
+s26 '
+s133 (
+s131 (
+#100
+0#
+#110
+1#
+s115 &
+s95 %
+s95 O
+s0x83 B
+b0110 >
+s116 $
+s0x0 1
+b0110 +
+s44 '
+s141 (
+s159 (
+#120
+0#
+#130
+1#
+s117 $
+s0x0 2
+b0111 +
+s0x9f C
+b0111 >
+s95 &
+s116 %
+s116 O
+s43 '
+s139 (
+s138 (
+#140
+0#
+#150
+1#
+s116 &
+s117 %
+s117 O
+s0x8a D
+b1000 >
+s95 $
+s0x0 3
+b1000 +
+s1 '
+s159 (
+s117 (
+#160
+0#
+#170
+1#
+s109 $
+s0x0 4
+b1001 +
+s0x75 E
+b1001 >
+s117 &
+s95 %
+s95 O
+s42 '
+s118 (
+s159 (
+#180
+0#
+#190
+1#
+s95 &
+s109 %
+s109 O
+s0x9f F
+b1010 >
+s97 $
+s0x0 5
+b1010 +
+s50 '
+s137 (
+s145 (
+#200
+0#
+#210
+1#
+s95 $
+s0x0 6
+b1011 +
+s0x91 G
+b1011 >
+s109 &
+s97 %
+s97 O
+s12 '
+s159 (
+s121 (
+#220
+0#
+#230
+1#
+s97 &
+s95 %
+s95 O
+s0x79 H
+b1100 >
+s116 $
+s0x0 7
+b1100 +
+s62 '
+s109 (
+s159 (
+#240
+0#
+#250
+1#
+s114 $
+s0x0 8
+b1101 +
+s0x9f I
+b1101 >
+s95 &
+s116 %
+s116 O
+s43 '
+s157 (
+s138 (
+#260
+0#
+#270
+1#
+s116 &
+s114 %
+s114 O
+s0x8a J
+b1110 >
+s97 $
+s0x0 9
+b1110 +
+s6 '
+s159 (
+s122 (
+#280
+0#
+#290
+1#
+s99 $
+s0x0 :
+b1111 +
+s0x7a K
+b1111 >
+s114 &
+s97 %
+s97 O
+s19 '
+s120 (
+s133 (
+#300
+0#
+#310
+1#
+s97 &
+s99 %
+s99 O
+s0x85 L
+b0000 >
+s101 $
+s0x0 ;
+b0000 +
+s2 '
+s116 (
+s99 (
+#320
+0#
+#330
+1#
+s0 $
+b0001 +
+1*
+s0x53 <
+s0x63 M
+b0001 >
+s99 &
+s101 %
+s101 O
+s6 '
+s101 (
+s105 (
+#340
+0#
+#350
+1#
+s101 &
+s0 %
+s0 O
+s0x79 <
+s0x69 N
+b0010 >
+b0010 +
+s101 '
+s107 (
+s202 (
+#360
+0#
+1"
+0!
+#370
+1#
+s0x91 <
+s0 &
+s101 (
+s0 '
+s0 (
+#380
+0#
+#390
+1#
+#400
+0#
+#410
+1#
+#420
+0#
+#430
+1#
+#440
+0#
+#450
+1#
+#460
+0#
+#470
+1#
+#480
+0#
+#490
+1#
+#500
+0#
+#510
+1#
+#520
+0#
+#530
+1#
+#540
+0#
+#550
+1#
+#560
+0#
+#570
+1#
+#580
+0#
+#590
+1#
+#600
+0#

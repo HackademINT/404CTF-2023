@@ -1,0 +1,456 @@
+$date
+    Wed May 10 18:16:14 2023
+$end
+$version
+    MyHDL 0.11
+$end
+$timescale
+    1ns
+$end
+
+$scope module Salomon $end
+$var reg 1 ! quetien $end
+$var reg 1 " palindrome $end
+$var reg 1 # quizembre $end
+$scope module autocar $end
+$var real 1 $ autocar(0) $end
+$var real 1 % autocar(1) $end
+$var real 1 & autocar(2) $end
+$var real 1 ' autocar(3) $end
+$var real 1 ( autocar(4) $end
+$upscope $end
+$scope module Kean0 $end
+$var reg 1 # f6 $end
+$var reg 1 ) a1 $end
+$var real 1 $ b2 $end
+$var reg 1 " c3 $end
+$var reg 1 ! d4 $end
+$var reg 1 * e5 $end
+$var reg 4 + h8 $end
+$scope module g7 $end
+$var real 1 , g7(0) $end
+$var real 1 - g7(1) $end
+$var real 1 . g7(2) $end
+$var real 1 / g7(3) $end
+$var real 1 0 g7(4) $end
+$var real 1 1 g7(5) $end
+$var real 1 2 g7(6) $end
+$var real 1 3 g7(7) $end
+$var real 1 4 g7(8) $end
+$var real 1 5 g7(9) $end
+$var real 1 6 g7(10) $end
+$var real 1 7 g7(11) $end
+$var real 1 8 g7(12) $end
+$var real 1 9 g7(13) $end
+$var real 1 : g7(14) $end
+$var real 1 ; g7(15) $end
+$upscope $end
+$upscope $end
+$scope module Elena0 $end
+$var reg 1 # g7 $end
+$var real 1 ( a1 $end
+$var real 1 < b2 $end
+$var reg 1 ! c3 $end
+$var reg 1 ! d4 $end
+$var reg 1 = e5 $end
+$var reg 1 " f6 $end
+$var reg 4 > i9 $end
+$scope module h8 $end
+$var real 1 ? h8(0) $end
+$var real 1 @ h8(1) $end
+$var real 1 A h8(2) $end
+$var real 1 B h8(3) $end
+$var real 1 C h8(4) $end
+$var real 1 D h8(5) $end
+$var real 1 E h8(6) $end
+$var real 1 F h8(7) $end
+$var real 1 G h8(8) $end
+$var real 1 H h8(9) $end
+$var real 1 I h8(10) $end
+$var real 1 J h8(11) $end
+$var real 1 K h8(12) $end
+$var real 1 L h8(13) $end
+$var real 1 M h8(14) $end
+$var real 1 N h8(15) $end
+$upscope $end
+$upscope $end
+$scope module le_Prince_de_Galles0 $end
+$var reg 1 # d4 $end
+$var real 1 $ a1 $end
+$var real 1 % b2 $end
+$var real 1 & c3 $end
+$var real 1 O e5 $end
+$upscope $end
+$scope module Amy0 $end
+$var real 1 % a1 $end
+$var real 1 & b2 $end
+$var real 1 ' c3 $end
+$upscope $end
+$scope module Anna_Damby0 $end
+$var real 1 & a1 $end
+$var real 1 ' b2 $end
+$var real 1 ( z3 $end
+$upscope $end
+$scope module le_comte_de_Koefeld0 $end
+$var reg 1 " a1 $end
+$var reg 1 ! b2 $end
+$upscope $end
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+1!
+0"
+0#
+s0 $
+s0 %
+s0 &
+s0 '
+s0 (
+0)
+0*
+b0000 +
+s0x49 ,
+s0x5f -
+s0x77 .
+s0x61 /
+s0x6e 0
+s0x74 1
+s0x5f 2
+s0x6d 3
+s0x79 4
+s0x5f 5
+s0x63 6
+s0x6f 7
+s0x66 8
+s0x66 9
+s0x65 :
+s0x65 ;
+s0x0 <
+0=
+b0000 >
+s0x0 ?
+s0x0 @
+s0x0 A
+s0x0 B
+s0x0 C
+s0x0 D
+s0x0 E
+s0x0 F
+s0x0 G
+s0x0 H
+s0x0 I
+s0x0 J
+s0x0 K
+s0x0 L
+s0x0 M
+s0x0 N
+s0 O
+$end
+#10
+1#
+s73 $
+s0x0 ,
+b0001 +
+b0001 >
+#20
+0#
+1=
+#30
+1#
+s73 %
+s73 O
+b0010 >
+s95 $
+s0x0 -
+b0010 +
+s73 '
+s73 (
+#40
+0#
+#50
+1#
+s119 $
+s0x0 .
+b0011 +
+s0x49 ?
+b0011 >
+s73 &
+s95 %
+s95 O
+s22 '
+s146 (
+s95 (
+#60
+0#
+0=
+#70
+1#
+s95 &
+s119 %
+s119 O
+s0x5f @
+b0100 >
+s97 $
+s0x0 /
+b0100 +
+s40 '
+s117 (
+s135 (
+#80
+0#
+#90
+1#
+s110 $
+s0x0 0
+b0101 +
+s0x87 A
+b0101 >
+s119 &
+s97 %
+s97 O
+s22 '
+s159 (
+s141 (
+#100
+0#
+#110
+1#
+s97 &
+s110 %
+s110 O
+s0x8d B
+b0110 >
+s116 $
+s0x0 1
+b0110 +
+s15 '
+s119 (
+s112 (
+#120
+0#
+#130
+1#
+s95 $
+s0x0 2
+b0111 +
+s0x70 C
+b0111 >
+s110 &
+s116 %
+s116 O
+s26 '
+s125 (
+s136 (
+#140
+0#
+#150
+1#
+s116 &
+s95 %
+s95 O
+s0x88 D
+b1000 >
+s109 $
+s0x0 3
+b1000 +
+s43 '
+s142 (
+s159 (
+#160
+0#
+#170
+1#
+s121 $
+s0x0 4
+b1001 +
+s0x9f E
+b1001 >
+s95 &
+s109 %
+s109 O
+s50 '
+s138 (
+s145 (
+#180
+0#
+#190
+1#
+s109 &
+s121 %
+s121 O
+s0x91 F
+b1010 >
+s95 $
+s0x0 5
+b1010 +
+s20 '
+s159 (
+s129 (
+#200
+0#
+#210
+1#
+s99 $
+s0x0 6
+b1011 +
+s0x81 G
+b1011 >
+s121 &
+s95 %
+s95 O
+s38 '
+s141 (
+s159 (
+#220
+0#
+#230
+1#
+s95 &
+s99 %
+s99 O
+s0x9f H
+b1100 >
+s111 $
+s0x0 7
+b1100 +
+s60 '
+s133 (
+s155 (
+#240
+0#
+#250
+1#
+s102 $
+s0x0 8
+b1101 +
+s0x9b I
+b1101 >
+s99 &
+s111 %
+s111 O
+s12 '
+s159 (
+s111 (
+#260
+0#
+#270
+1#
+s111 &
+s102 %
+s102 O
+s0x6f J
+b1110 >
+s0x0 9
+b1110 +
+s9 '
+s123 (
+s120 (
+#280
+0#
+#290
+1#
+s101 $
+s0x0 :
+b1111 +
+s0x78 K
+b1111 >
+s102 &
+s111 (
+s0 '
+s102 (
+#300
+0#
+#310
+1#
+s101 %
+s101 O
+s0x66 L
+b0000 >
+s0x0 ;
+b0000 +
+s3 '
+s105 (
+#320
+0#
+#330
+1#
+s0 $
+b0001 +
+1*
+s0x49 <
+s0x69 M
+b0001 >
+s101 &
+s104 (
+s0 '
+s101 (
+#340
+0#
+#350
+1#
+s0 %
+s0 O
+s0x5f <
+s0x65 N
+b0010 >
+b0010 +
+s101 '
+s202 (
+#360
+0#
+1"
+0!
+#370
+1#
+s0x87 <
+s0 &
+s101 (
+s0 '
+s0 (
+#380
+0#
+#390
+1#
+#400
+0#
+#410
+1#
+#420
+0#
+#430
+1#
+#440
+0#
+#450
+1#
+#460
+0#
+#470
+1#
+#480
+0#
+#490
+1#
+#500
+0#
+#510
+1#
+#520
+0#
+#530
+1#
+#540
+0#
+#550
+1#
+#560
+0#
+#570
+1#
+#580
+0#
+#590
+1#
+#600
+0#
