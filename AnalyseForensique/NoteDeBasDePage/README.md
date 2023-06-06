@@ -16,7 +16,7 @@ ou avec `pffexport` (paquet `pff-tools` sur Ubuntu).
 
 On trouve un seul email dans les éléments envoyés, il contient une pièce jointe, `Capture d’écran 2023-05-07 210840.png`.
 
-![Capture d’écran 2023-05-07 210840.png](Capture d’écran 2023-05-07 210840.png)
+![Capture d’écran 2023-05-07 210840.png](https://raw.githubusercontent.com/HackademINT/404CTF-2023/main/AnalyseForensique/NoteDeBasDePage/Capture%20d%E2%80%99%C3%A9cran%202023-05-07%20210840.png)
 
 Cette dernière est une capture d'écran prise sur un Windows 11 vulnérable à [Acropalypse](https://twitter.com/David3141593/status/1638222624084951040).
 On aperçoit le début du flag qui a été crop. On peut aller récupérer le script d'origine pour les smartphones,
