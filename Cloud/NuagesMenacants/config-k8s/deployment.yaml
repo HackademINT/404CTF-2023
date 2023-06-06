@@ -1,0 +1,67 @@
+apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: flag
+    namespace: 404ctf
+  data:
+    flag.txt: |
+      404CTF{A_la_recherche_de_la_racine}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+  namespace: 404ctf
+spec:
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: 404ctf/my-app
+        ports:
+        - containerPort: 22
+        volumeMounts:
+        - mountPath: /var/node/log
+          name: log-volume
+        - mountPath: /flag.txt
+          name: flag
+          subPath: flag.txt
+      volumes:
+      - name: log-volume
+        hostPath:
+          path: /var/log
+          type: Directory
+      - name: flag
+        configmap:
+          name: flag
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-svc
+  namespace: 404ctf
+spec:
+  selector:
+    app: my-app
+  ports:
+  - protocol: TCP
+    port: 22
+    targetPort: 22
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: start
+  labels:
+    name: start
+spec:
+  containers:
+  - name: start
+    image: 404ctf/start

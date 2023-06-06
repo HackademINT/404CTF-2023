@@ -1,0 +1,14 @@
+FROM golang
+
+WORKDIR /app
+
+ADD . /app
+
+RUN go build c2.go 
+
+EXPOSE 1337
+EXPOSE 1338
+EXPOSE 1339
+EXPOSE 31337
+
+ENTRYPOINT [ "/app/c2" ]

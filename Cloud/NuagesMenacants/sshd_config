@@ -1,0 +1,32 @@
+# Networking
+AddressFamily inet
+Port 22
+ListenAddress 0.0.0.0
+Compression delayed
+#TCPKeepAlive yes
+
+# Authentication:
+AllowUsers 404ctf
+AuthenticationMethods password
+UsePAM yes
+MaxAuthTries 1
+
+# User restrictions
+ForceCommand /home/404ctf/ssh-entrypoint.sh
+StrictModes yes
+LoginGraceTime 10s
+#ClientAliveInterval 10
+#ClientAliveCountMax 3
+DisableForwarding yes
+GatewayPorts no
+PermitTunnel no
+PermitUserEnvironment no
+MaxSessions 1
+
+# Logging
+LogLevel INFO
+
+# Swag
+PrintMotd no
+Banner /etc/ssh/ssh_banner
+DebianBanner no
