@@ -12,5 +12,4 @@
 - 🟩 La Vie Française
 - 🟧 Fuite en 1791
 - 🟧 L'Épistolaire moderne
-- 🟥 Gestionnaire de perruche de Sparrman
 - 🟥 [Chanson d'Inde](ChansonDInde)
