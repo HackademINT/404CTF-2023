@@ -1,0 +1,58 @@
+Stack:
+
+4 0 4 C T F { P 4 c k 1 n g _ 1 s _ H 3 l l ! }|p 4 c k
+E                                               F
+
+Pseudo code :
+
+mov     S, F
+pop     F           ; F = (int) "p4ck"
+
+mov     A, 6
+mov     B, 1
+mov     C, 4        ; instruction size:
+pop     D           ; 2
+xor     D, F        ; 3
+push    D           ; 2
+add     S, C        ; 3
+sub     A, B        ; 3
+jif     -14         ; 1 -> sum: 14
+
+
+
+
+Packer stack:
+
+b y t e c o d e   x o r r e d|b 4 B y G 1 r l
+S                             D
+
+Packer regs :
+
+F = const 4 ou 1
+E = 0 ou 4
+D = key_addr
+C = xor_mask ( memory[D+E] )
+B = xor_value (int @ S)
+A = 17
+
+
+Packer pseudo code :
+
+mov     A, 17
+xor     E, E
+                    ; instruction size:
+mov     B, S        ; 3 -> temp save of S
+mov     S, D        ; 3
+add     S, E        ; 3
+pop     C           ; 2 -> C = memory[D+E]
+mov     S, B        ; 3 -> restore S
+pop     B           ; 2 -> B = memory[S]
+xor     B, C        ; 3
+push    B           ; 2 -> memory[S] = B ^ C
+mov     F, 4        ; 6
+add     S, F        ; 3 -> S += 4
+add     E, F        ; 3
+and     E, F        ; 3 -> E = 0 si (E == 8)
+mov     F, 1        ; 6
+sub     A, F        ; 3
+jif     -46         ; 1 -> sum: 46

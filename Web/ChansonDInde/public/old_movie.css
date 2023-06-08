@@ -1,0 +1,346 @@
+:root {
+  --trsn: all 0.5s ease 0s;
+  --black: #000;
+}
+
+*:before,
+*:after {
+  position: absolute;
+}
+
+body {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  perspective: 100vmin;
+}
+
+.content {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*background: url(https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib&auto=format&fit=crop&w=1800&q=80)
+    no-repeat center center;
+  background: url(https://source.unsplash.com/random/800x600/?mountain)
+    no-repeat center center;*/
+  background-color: #404040;
+  background-size: cover;
+  transition: var(--trsn);
+}
+
+.content:before {
+  content: "LA THEIERE PRODUCTION - 2021";
+  font-family: Arial, Helvetica, serif;
+  bottom: 0vmin;
+  font-weight: 500;
+  font-size: 1.35vmin;
+  color: #fffd;
+  border-radius: 1px;
+  padding: 20vmin 2vmin 3vmin;
+  letter-spacing: 0.5px;
+  word-spacing: 3px;
+  background: linear-gradient(0deg, black, transparent);
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+.content:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 20vmin 0vmin var(--black) inset,
+    0 0 3vmin 0.5vmin var(--black) inset, 0 0 1vmin 1vmin var(--black);
+}
+
+.film,
+.effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(0.45px) drop-shadow(0px 0px 0px #fff1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.film:after,
+.effect:after {
+  content: "";
+  width: 120%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding-left: 100px;
+  opacity: 0.5;
+  animation: film-scratch 0.45s steps(1) infinite;
+  background: repeating-linear-gradient(
+    90deg,
+    #0002 0 2px,
+    transparent 4px 37vmin
+  );
+}
+
+.effect:after {
+  left: 30%;
+  animation: effect-scratch 2s infinite;
+}
+
+.grain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.grain:after {
+  content: "";
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+  opacity: 0.25;
+  background-image: repeating-conic-gradient(
+      var(--black) 0%,
+      transparent 0.00003%,
+      transparent 0.0005%,
+      transparent 0.00095%
+    ),
+    repeating-conic-gradient(
+      var(--black) 0%,
+      transparent 0.00005%,
+      transparent 0.00015%,
+      transparent 0.0009%
+    );
+  animation: grain 0.5s steps(1) infinite;
+  filter: drop-shadow(0px 0px 1px black);
+}
+
+.film video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-1%, -1%);
+  }
+  20% {
+    transform: translate(1%, 1%);
+  }
+  30% {
+    transform: translate(-2%, -2%);
+  }
+  40% {
+    transform: translate(3%, 3%);
+  }
+  50% {
+    transform: translate(-3%, -3%);
+  }
+  60% {
+    transform: translate(4%, 4%);
+  }
+  70% {
+    transform: translate(-4%, -4%);
+  }
+  80% {
+    transform: translate(2%, 2%);
+  }
+  90% {
+    transform: translate(-3%, -3%);
+  }
+}
+
+@keyframes film-scratch {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  10% {
+    transform: translateX(-1%);
+  }
+  20% {
+    transform: translateX(1%);
+  }
+  30% {
+    transform: translateX(-2%);
+    opacity: 0.75;
+  }
+  40% {
+    transform: translateX(3%);
+  }
+  50% {
+    transform: translateX(-3%);
+    opacity: 0.5;
+  }
+  60% {
+    transform: translateX(8%);
+  }
+  70% {
+    transform: translateX(-3%);
+  }
+  80% {
+    transform: translateX(10%);
+    opacity: 0.25;
+  }
+  90% {
+    transform: translateX(-2%);
+  }
+}
+
+@keyframes effect-scratch {
+  0% {
+    transform: translateX(0);
+    opacity: 0.75;
+  }
+  10% {
+    transform: translateX(-1%);
+  }
+  20% {
+    transform: translateX(1%);
+  }
+  30% {
+    transform: translateX(-2%);
+  }
+  40% {
+    transform: translateX(3%);
+  }
+  50% {
+    transform: translateX(-3%);
+    opacity: 0.5;
+  }
+  60% {
+    transform: translateX(8%);
+  }
+  70% {
+    transform: translateX(-3%);
+  }
+  80% {
+    transform: translateX(10%);
+    opacity: 0.25;
+  }
+  90% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(30%);
+  }
+}
+
+/**** OLD FILM EFFECT END ****/
+
+/*** OPTIONS ***/
+
+@property --pos {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 20%;
+}
+
+input.toggler {
+  position: absolute;
+  display: none;
+}
+
+label {
+  position: absolute;
+  position: absolute;
+  background: #0008;
+  bottom: 7vmin;
+  z-index: 3;
+  width: 12vmin;
+  height: 5vmin;
+  border-radius: 5vmin;
+  cursor: pointer;
+  border-bottom: 1px solid #fff4;
+  border-top: 1px solid var(--black);
+}
+
+label:before {
+  width: 4vmin;
+  height: 4vmin;
+  background: #485637;
+  content: "";
+  border-radius: 100%;
+  box-sizing: border-box;
+  top: 0.5vmin;
+  left: 0.75vmin;
+  box-shadow: 2px 0px 4px 0px #000c;
+}
+
+label:after {
+  font-family: Arial, Helvetica, serif;
+  font-weight: 500;
+  font-size: 1.25vmin;
+  border-radius: 1px;
+  content: "FILTRE SEPIA";
+  color: #fffd;
+  bottom: 6.5vmin;
+  background: linear-gradient(180deg, black 3.35vmin, #fff0 3.35vmin),
+    conic-gradient(
+      from -45deg at var(--pos) 100%,
+      var(--black) 0 25%,
+      #fff0 0 100%
+    );
+  padding: 1vmin 0.5vmin 0.2vmin;
+  text-shadow: none;
+  letter-spacing: 0.5px;
+  margin-left: 0;
+  opacity: 0.65;
+  transition: var(--trsn);
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/*** checked ***/
+
+input:checked + label:before {
+  left: 7.25vmin;
+  transition: var(--trsn);
+  background: #39b13e;
+}
+
+input#sepia:checked ~ .content {
+  filter: sepia(0.75);
+}
+
+input#invert:checked ~ .content .film {
+  filter: invert(1);
+}
+
+input:checked + label:after {
+  animation: arrow 0.5s ease 0s 1;
+  animation-fill-mode: forwards;
+  transition: var(--trsn);
+}
+
+input:checked + label[for="sepia"]:after {
+  color: white;
+}
+
+@keyframes arrow {
+  0% {
+    --pos: 20%;
+  }
+  100% {
+    --pos: 80%;
+  }
+}

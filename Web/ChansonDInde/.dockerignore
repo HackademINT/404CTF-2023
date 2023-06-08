@@ -1,0 +1,21 @@
+# Ignore node files for performance
+node_modules
+npm-debug.log
+
+# Git files
+.git
+.gitignore
+.gitlab-ci.yml
+
+# IDE files
+.prettierignore
+
+# Doc
+README.md
+
+# Docker files
+Dockerfile
+.dockerignore
+
+# Dev credentials
+config/dev.env

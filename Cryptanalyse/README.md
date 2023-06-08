@@ -7,14 +7,14 @@
 
 ## Challenges
 - 🟦 Recette
-- 🟩 Dessine-moi une courbe elliptique
+- 🟩 [Dessine-moi une courbe elliptique](DessineMoiUneCourbeElliptique)
 - 🟩 Le Jour de l'espace
 - 🟩 Une littérature animalière
 - 🟩 ASCON Marchombre
 - 🟧 La réponse de Voris
-- 🟧 Oracle cassé
+- 🟧 [Oracle cassé](OracleCassé)
 - 🟧 L'énigme du mal-aimé
-- 🟧 Trois
-- 🟥 Dessine et signe
-- 🟥 À la fin de l'envoi, je signe !
-- 🟪 Là où les nombres n'existent pas
+- 🟧 [Trois](Trois)
+- 🟥 [Dessine et signe](DessineEtSigne)
+- 🟥 [À la fin de l'envoi, je signe !](ÀLaFinDeLEnvoiJeSigne)
+- 🟪 [Là où les nombres n'existent pas](LàOùLesNombresNExistentPas)

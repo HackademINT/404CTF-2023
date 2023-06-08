@@ -1,0 +1,11 @@
+{
+    "name": "Le seul et l'unique",
+    "description": "Qui sait ce qu'il se cache au bout du chemin ?!",
+    "image": "ipfs://bafybeic6ea7qi5ctdp6s6msddd7hwuic3boumwknrirlakftr2yrgnfiga/mystere.png",
+    "attributes": [
+      {
+        "trait_type": "Rarity",
+        "value": "Unique"
+      }
+    ]
+}
