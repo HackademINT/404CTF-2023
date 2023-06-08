@@ -1,1 +1,2 @@
 RadioFrequences/*/Challenge/* filter=lfs diff=lfs merge=lfs -text
+RadioFrequences/gestionnaire-de-perruche-de-sparrman/Challenge/brdc1210_23.bin.tar.xz filter=lfs diff=lfs merge=lfs -text
