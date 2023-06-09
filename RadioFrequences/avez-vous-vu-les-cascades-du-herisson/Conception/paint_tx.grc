@@ -1,0 +1,533 @@
+options:
+  parameters:
+    author: ''
+    catch_exceptions: 'True'
+    category: Custom
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: paint_tx
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: ''
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: frequency
+  id: variable
+  parameters:
+    comment: ''
+    value: '915000000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 155]
+    rotation: 0
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '2000000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 83]
+    rotation: 0
+    state: enabled
+- name: tx_gain
+  id: variable_qtgui_range
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: ''
+    min_len: '200'
+    orient: QtCore.Qt.Horizontal
+    outputmsgname: value
+    rangeType: float
+    showports: 'False'
+    start: '0'
+    step: '0.25'
+    stop: '89'
+    value: '70'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 224]
+    rotation: 0
+    state: enabled
+- name: blocks_file_sink_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: C:\Users\morom\Documents\GitHub\gr-paint\apps\output2
+    type: complex
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1016, 368.0]
+    rotation: 0
+    state: enabled
+- name: blocks_null_sink_0
+  id: blocks_null_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    bus_structure_sink: '[[0,],]'
+    comment: ''
+    num_inputs: '1'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [904, 416.0]
+    rotation: 0
+    state: enabled
+- name: blocks_stream_to_vector_0
+  id: blocks_stream_to_vector
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_items: '4096'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [712, 112.0]
+    rotation: 0
+    state: enabled
+- name: blocks_throttle_0
+  id: blocks_throttle
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [752, 364.0]
+    rotation: 0
+    state: enabled
+- name: blocks_vector_to_stream_0
+  id: blocks_vector_to_stream
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_items: '4096'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [984, 208.0]
+    rotation: 180
+    state: enabled
+- name: digital_ofdm_cyclic_prefixer_0
+  id: digital_ofdm_cyclic_prefixer
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    cp_len: '192'
+    input_size: '4096'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    rolloff: '0'
+    tagname: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [488, 444.0]
+    rotation: 0
+    state: enabled
+- name: epy_block_0
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\nfrom PIL import Image, ImageDraw, ImageFont, ImageOps\n\
+      import pmt\n\n\n\nclass image_source(gr.sync_block):  # other base classes are\
+      \ basic_block, decim_block, interp_block\n    \"\"\"Embedded Python Block example\
+      \ - a simple multiply const\"\"\"\n\n    image_flip = False\n    bt709_map =\
+      \ True\n    image_invert = False\n    autocontrast = False\n    repeatmode =\
+      \ 1\n    image_data = None\n    eof = False\n    size = 85\n\n    def __init__(self,\
+      \ image_file=\"C:/Users/morom/Desktop/404/dumas.jpg\", flag='404CTF{}', image_flip=False,\
+      \ bt709_map=True, image_invert=False, autocontrast=False, repeatmode=1, size=85):\
+      \  # only default arguments here\n        \"\"\"arguments to this function show\
+      \ up as parameters in GRC\"\"\"\n        gr.sync_block.__init__(self,\n    \
+      \        name='Create flag',   # will show up in GRC\n            in_sig=[],\n\
+      \            out_sig=[np.uint8])\n        # if an attribute with the same name\
+      \ as a parameter is found,\n        # a callback is registered (properties work,\
+      \ too).\n        self.image_file = image_file\n        self.flag = flag\n  \
+      \      self.image_flip = image_flip\n        self.bt709_map = bt709_map\n  \
+      \      self.image_invert = image_invert\n        self.autocontrast = autocontrast\n\
+      \        self.repeatmode = repeatmode\n        self.size = size\n        self.load_image()\n\
+      \n\n    def load_image(self):\n        \"\"\"decode the image into a buffer\"\
+      \"\"\n        self.image_data = Image.open(self.image_file)\n        font=ImageFont.truetype(\"\
+      C:/Users/morom/Desktop/404/arial.ttf\",self.size)\n        w,h = self.image_data.size\n\
+      \        draw = ImageDraw.Draw(self.image_data)\n        text_w, text_h = draw.textsize(self.flag,\
+      \ font)\n        draw.text(((w-text_w) // 2,0),self.flag, font=font, fill=(255,255,255))\n\
+      \        self.image_data = ImageOps.grayscale(self.image_data)\n\n        if\
+      \ self.autocontrast:\n            # may improve the look of the transmitted\
+      \ spectrum\n            self.image_data = ImageOps.autocontrast(self.image_data)\n\
+      \n        if self.image_invert:\n            # may improve the look of the transmitted\
+      \ spectrum\n            self.image_data = ImageOps.invert(self.image_data)\n\
+      \n        if self.image_flip:\n            # set to true for waterfalls that\
+      \ scroll from the top\n            self.image_data = ImageOps.flip(self.image_data)\n\
+      \n        (self.image_width, self.image_height) = self.image_data.size\n   \
+      \     max_width = 4096.0\n\n        if self.image_width > max_width:\n     \
+      \       scaling = max_width / self.image_width\n            newsize = (int(self.image_width\
+      \ * scaling), int(self.image_height * scaling))\n            (self.image_width,\
+      \ self.image_height) = newsize\n            self.image_data = self.image_data.resize(newsize)\n\
+      \        self.set_output_multiple(self.image_width)\n\n        self.image_data\
+      \ = list(self.image_data.getdata())\n        if self.bt709_map:\n          \
+      \  # scale brightness according to ITY-R BT.709\n            self.image_data\
+      \ = map(lambda x: x*219 / 255 +16, self.image_data)\n            self.image_data\
+      \ = list(self.image_data)\n        self.image_len = len(self.image_data)\n\n\
+      \        if self.repeatmode != 2:\n            print(\"paint.image_source: %d\
+      \ bytes, %dpx width\" % (self.image_len, self.image_width))\n        self.line_num\
+      \ = 0\n\n\n    def work(self, input_items, output_items):\n        if self.eof:\n\
+      \                return -1\n        out = output_items[0]\n        self.add_item_tag(0,\
+      \ self.nitems_written(0), pmt.intern(\"image_width\"), pmt.from_long(self.image_width))\n\
+      \        self.add_item_tag(0, self.nitems_written(0), pmt.intern(\"line_num\"\
+      ), pmt.from_long(self.line_num))\n        out[:self.image_width] = self.image_data[self.image_width*self.line_num:\
+      \ self.image_width*(1+self.line_num)]\n\n        self.line_num +=1\n       \
+      \ if self.line_num >= self.image_height:\n            self.line_num = 0\n  \
+      \          if self.repeatmode == 0:\n                self.eof = True\n     \
+      \       if self.repeatmode == 2:\n                self.load_image()\n      \
+      \  return self.image_width\n"
+    affinity: ''
+    alias: ''
+    autocontrast: 'False'
+    bt709_map: 'True'
+    comment: ''
+    flag: '''404CTF{413x4ndR3_d4n5_Un3_C45c4d35_?}'''
+    image_file: '''C:/Users/morom/Desktop/404/dumas.jpg'''
+    image_flip: 'True'
+    image_invert: 'False'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    repeatmode: '1'
+    size: '85'
+  states:
+    _io_cache: ('Create flag', 'image_source', [('image_file', "'C:/Users/morom/Desktop/404/dumas.jpg'"),
+      ('flag', "'404CTF{}'"), ('image_flip', 'False'), ('bt709_map', 'True'), ('image_invert',
+      'False'), ('autocontrast', 'False'), ('repeatmode', '1'), ('size', '85')], [],
+      [('0', 'byte', 1)], 'Embedded Python Block example - a simple multiply const',
+      ['autocontrast', 'bt709_map', 'flag', 'image_file', 'image_flip', 'image_invert',
+      'repeatmode', 'size'])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [208, 232.0]
+    rotation: 0
+    state: true
+- name: fft_vxx_0
+  id: fft_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fft_size: '4096'
+    forward: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    nthreads: '1'
+    shift: 'True'
+    type: complex
+    window: window.rectangular(4096)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [984, 76.0]
+    rotation: 0
+    state: enabled
+- name: paint_image_source_0
+  id: paint_image_source
+  parameters:
+    affinity: ''
+    alias: ''
+    autocontrast: '0'
+    bt709_map: '1'
+    comment: ''
+    image_file: C:\Users\morom\Documents\GitHub\1024-1133.png
+    image_flip: '1'
+    image_invert: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    repeatmode: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [216, 64.0]
+    rotation: 0
+    state: disabled
+- name: paint_paint_bc_0
+  id: paint_paint_bc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    equalization: EQUALIZATION_OFF
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    randomsrc: INTERNAL
+    repeats: '5'
+    width: '1700'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [464, 88.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_const_sink_x_0
+  id: qtgui_const_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: '"blue"'
+    color10: '"red"'
+    color2: '"red"'
+    color3: '"red"'
+    color4: '"red"'
+    color5: '"red"'
+    color6: '"red"'
+    color7: '"red"'
+    color8: '"red"'
+    color9: '"red"'
+    comment: ''
+    grid: 'False'
+    gui_hint: ''
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    marker1: '0'
+    marker10: '0'
+    marker2: '0'
+    marker3: '0'
+    marker4: '0'
+    marker5: '0'
+    marker6: '0'
+    marker7: '0'
+    marker8: '0'
+    marker9: '0'
+    name: '""'
+    nconnections: '1'
+    size: '4096'
+    style1: '0'
+    style10: '0'
+    style2: '0'
+    style3: '0'
+    style4: '0'
+    style5: '0'
+    style6: '0'
+    style7: '0'
+    style8: '0'
+    style9: '0'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: complex
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    xmax: '15'
+    xmin: '-15'
+    ymax: '15'
+    ymin: '-15'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [984, 284.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_waterfall_sink_x_0
+  id: qtgui_waterfall_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '0'
+    color10: '0'
+    color2: '0'
+    color3: '0'
+    color4: '0'
+    color5: '0'
+    color6: '0'
+    color7: '0'
+    color8: '0'
+    color9: '0'
+    comment: ''
+    fc: '0'
+    fftsize: '4096'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    int_max: '-51'
+    int_min: '-77'
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    nconnections: '1'
+    showports: 'True'
+    type: complex
+    update_time: '0.10'
+    wintype: window.WIN_RECTANGULAR
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [712, 184.0]
+    rotation: 0
+    state: true
+- name: virtual_sink_0
+  id: virtual_sink
+  parameters:
+    alias: ''
+    comment: ''
+    stream_id: paint-cyclic
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [984, 20.0]
+    rotation: 0
+    state: enabled
+- name: virtual_source_0
+  id: virtual_source
+  parameters:
+    alias: ''
+    comment: ''
+    stream_id: paint-cyclic
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [168, 460.0]
+    rotation: 0
+    state: enabled
+
+connections:
+- [blocks_stream_to_vector_0, '0', fft_vxx_0, '0']
+- [blocks_stream_to_vector_0, '0', virtual_sink_0, '0']
+- [blocks_throttle_0, '0', blocks_file_sink_0, '0']
+- [blocks_throttle_0, '0', blocks_null_sink_0, '0']
+- [blocks_vector_to_stream_0, '0', qtgui_const_sink_x_0, '0']
+- [digital_ofdm_cyclic_prefixer_0, '0', blocks_throttle_0, '0']
+- [epy_block_0, '0', paint_paint_bc_0, '0']
+- [fft_vxx_0, '0', blocks_vector_to_stream_0, '0']
+- [paint_image_source_0, '0', paint_paint_bc_0, '0']
+- [paint_paint_bc_0, '0', blocks_stream_to_vector_0, '0']
+- [paint_paint_bc_0, '0', qtgui_waterfall_sink_x_0, '0']
+- [virtual_source_0, '0', digital_ofdm_cyclic_prefixer_0, '0']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.4.0
