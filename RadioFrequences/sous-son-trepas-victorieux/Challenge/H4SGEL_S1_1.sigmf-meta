@@ -1,0 +1,15 @@
+{
+  "global": {
+    "core:datatype": "cf32_le",
+    "core:sample_rate": 48000.0,
+    "core:version": "1.0.0",
+    "core:author": "Racoon",
+    "core:description": "H4SGEL_S1_1"
+  },
+  "captures": [
+    {
+      "core:sample_start": 0
+    }
+  ],
+  "annotations": []
+}

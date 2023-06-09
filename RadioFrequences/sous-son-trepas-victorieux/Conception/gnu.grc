@@ -1,0 +1,150 @@
+options:
+  parameters:
+    author: ''
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: untitled
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: Not titled yet
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [200, 32.0]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '48000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [64, 24.0]
+    rotation: 0
+    state: enabled
+- name: analog_wfm_tx_0
+  id: analog_wfm_tx
+  parameters:
+    affinity: ''
+    alias: ''
+    audio_rate: '100000'
+    comment: ''
+    fh: '-1.0'
+    max_dev: 75e3
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    quad_rate: '100000'
+    tau: 75e-8
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [496, 296.0]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: /run/media/rmoreau/ARCH_202303/404/404/de-la-radio-a-l-image/Challenge/H4SGEL_S1_1
+    type: complex
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1080, 312.0]
+    rotation: 0
+    state: disabled
+- name: blocks_freqshift_cc_0
+  id: blocks_freqshift_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    freq: '40000'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    sample_rate: '100000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [824, 320.0]
+    rotation: 0
+    state: true
+- name: blocks_sigmf_sink_minimal_0
+  id: blocks_sigmf_sink_minimal
+  parameters:
+    affinity: ''
+    alias: ''
+    author: Racoon
+    center_freq: np.nan
+    comment: ''
+    description: A test file
+    filename: /run/media/rmoreau/ARCH_202303/404/404/de-la-radio-a-l-image/Challenge/H4SGEL_S1_1
+    hw_info: ''
+    sample_rate: samp_rate
+    type: complex float (fc32_le)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1080, 416.0]
+    rotation: 0
+    state: true
+- name: blocks_wavfile_source_0
+  id: blocks_wavfile_source
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    file: /run/media/rmoreau/ARCH_202303/404/404/de-la-radio-a-l-image/Conception/SSTV.wav
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    nchan: '1'
+    repeat: 'False'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [200, 320.0]
+    rotation: 0
+    state: true
+
+connections:
+- [analog_wfm_tx_0, '0', blocks_freqshift_cc_0, '0']
+- [blocks_freqshift_cc_0, '0', blocks_file_sink_0, '0']
+- [blocks_freqshift_cc_0, '0', blocks_sigmf_sink_minimal_0, '0']
+- [blocks_wavfile_source_0, '0', analog_wfm_tx_0, '0']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.5.1
