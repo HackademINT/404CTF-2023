@@ -11,13 +11,13 @@
 - 🟩 Un vol ?
 - 🟩 La Quête du sens [1/3]
 - 🟩 Les OSINTables [1/3]
-- 🟩 L'âme d'un poète et le coeur d'une femme [1/4]
-- 🟩 L'âme d'un poète et le coeur d'une femme [2/4]
-- 🟩 L'âme d'un poète et le coeur d'une femme [3/4]
+- 🟩 [L'âme d'un poète et le cœur d'une femme [1/4]](LAmeDUnPoeteEtLeCoeurDUneFemme)
+- 🟩 [L'âme d'un poète et le cœur d'une femme [2/4]](LAmeDUnPoeteEtLeCoeurDUneFemme)
+- 🟩 [L'âme d'un poète et le cœur d'une femme [3/4]](LAmeDUnPoeteEtLeCoeurDUneFemme)
+- 🟧 [L'âme d'un poète et le cœur d'une femme [4/4]](LAmeDUnPoeteEtLeCoeurDUneFemme)
 - 🟧 La Quête du sens [2/3]
 - 🟧 La Quête du sens [3/3]
 - 🟧 Les OSINTables [2/3]
-- 🟧 L'âme d'un poète et le coeur d'une femme [4/4]
 - 🟥 Il est l'or Monseignor !
 - 🟪 Les OSINTables [3/3]
 - 🟪 Chateaubrion Edrabellah : la célèbre figure littéraire française
