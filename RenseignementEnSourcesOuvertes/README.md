@@ -19,5 +19,5 @@
 - 🟧 [La Quête du sens [3/3]](QueteDeSens)
 - 🟧 Les OSINTables [2/3]
 - 🟥 Il est l'or Monseignor !
-- 🟪 Les OSINTables [3/3]
+- 🟪 [Les OSINTables [3/3]](Osintables)
 - 🟪 Chateaubrion Edrabellah : la célèbre figure littéraire française
