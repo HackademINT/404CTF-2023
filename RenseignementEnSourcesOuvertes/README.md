@@ -18,6 +18,6 @@
 - 🟧 [La Quête du sens [2/3]](QueteDeSens)
 - 🟧 [La Quête du sens [3/3]](QueteDeSens)
 - 🟧 Les OSINTables [2/3]
-- 🟥 Il est l'or Monseignor !
+- 🟥 [Il est l'or Monseignor !](OrMonseignor)
 - 🟪 [Les OSINTables [3/3]](Osintables)
 - 🟪 Chateaubrion Edrabellah : la célèbre figure littéraire française
