@@ -20,4 +20,4 @@
 - 🟧 Les OSINTables [2/3]
 - 🟥 [Il est l'or Monseignor !](OrMonseignor)
 - 🟪 [Les OSINTables [3/3]](Osintables)
-- 🟪 Chateaubrion Edrabellah : la célèbre figure littéraire française
+- 🟪 [Chateaubrion Edrabellah : la célèbre figure littéraire française](Edrabellah)
