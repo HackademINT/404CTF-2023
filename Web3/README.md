@@ -9,7 +9,7 @@
 
 - 🟦 [Art](Art)
 - 🟩 [L'Antiquaire, tête en l'air](LAntiquaireTeteEnLair)
-- 🟩 La Folie du jeu : descente aux enfers
+- 🟩 [La Folie du jeu : descente aux enfers](LaFolieDuJeuDescenteAuxEnfers)
 - 🟧 [La Folie du jeu : d'esclave à maître](LaFolieDuJeuDEsclaveAMaitre)
 - 🟧 [La guerre des boutons](LaGuerreDesBoutons)
 - 🟧 [L'Arriviste accompli](LArrivisteAccompli)

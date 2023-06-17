@@ -54,4 +54,6 @@ Ensuite on calcule la next instance, toutes les variables sont connues.
 
 Ensuite on fait un appel au smart contract en mettant en argument next, et c'est gagné !
 
+Vous pouvez voir un exemple de script de résolution [ici](solve.js).
+
 `Flag : 404CTF{r4Nd0Mn3ss_1S_NOt_s0_345y}` 
