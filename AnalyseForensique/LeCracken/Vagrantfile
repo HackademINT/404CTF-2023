@@ -1,0 +1,135 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+require 'yaml'
+
+current_dir = File.dirname(File.expand_path(__FILE__))
+config = YAML.load_file("#{current_dir}/config.yaml")
+
+Vagrant.configure("2") do |global|
+
+  global.vm.define "router" do |router|
+    router.vm.hostname = config['hostname']['router']
+    router.vm.box = "bento/debian-11"
+    router.vm.provider "virtualbox" do |vb|
+      vb.name = "Router"
+      vb.gui = true
+      vb.memory = 512
+    end
+    router.vm.network "private_network",      # Challenge management network interface
+      virtualbox__intnet: "management",
+      ip: config['network']['management']['ip']['router']
+    router.vm.network "private_network",      # Challenge management network interface
+      virtualbox__intnet: "user",
+      ip: config['network']['user']['ip']['router']
+    router.vm.provision "shell", path: "Scripts/install/router.sh", args: [
+      config['network']['management']['ip']['dhcpServer']
+    ]
+  end
+
+  global.vm.define "domainController" do |domainController|
+    domainController.vm.hostname = config['hostname']['domainController']
+    domainController.vm.box = "gusztavvargadr/windows-server-2022-standard"
+
+    domainController.vm.provider "virtualbox" do |vb|
+      vb.name = "Domain Controller"
+      vb.gui = true
+      vb.memory = 2048
+    end
+
+    domainController.vm.communicator = "winrm"
+    domainController.winrm.transport = :plaintext
+    domainController.winrm.basic_auth_only = true
+
+    domainController.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
+    domainController.vm.network "private_network",      # Challenge management network interface
+      virtualbox__intnet: "management",
+      ip: config['network']['management']['ip']['domainController']
+
+    domainController.vm.provision "shell", path: "Scripts/install/windows-common.ps1"
+    domainController.vm.provision "shell", path: "Scripts/network/windows.ps1", run: "always", args: [
+      "-ip", config['network']['management']['ip']['domainController'],
+      "-gateway", config['network']['management']['ip']['router'],
+      "-dns", "9.9.9.9",
+    ]
+    domainController.vm.provision "shell", path: "Scripts/install/domain-controller.ps1", args: [
+      "-domain", config['activeDirectory']['domain'],
+      "-nbName", config['activeDirectory']['netBiosName'],
+      "-safeModePassword", config['activeDirectory']['safeModePassword'],
+    ]
+    domainController.vm.provision "shell", reboot: true
+    config['activeDirectory']['accounts'].each do |user|
+      domainController.vm.provision "shell", path: 'Scripts/install/add-ad-account.ps1', args: [
+        "-name", user["name"],
+        "-login", user["login"],
+        "-password", user["password"],
+        "-domainAdmin", user["domainAdmin"] ? 'true' : 'false',
+      ]
+    end
+  end
+
+  global.vm.define "dhcpServer" do |dhcpServer|
+    dhcpServer.vm.hostname = config['hostname']['dhcpServer']
+    dhcpServer.vm.box = "gusztavvargadr/windows-server-2022-standard"
+
+    dhcpServer.vm.provider "virtualbox" do |vb|
+      vb.name = "DHCP Server"
+      vb.gui = true
+      vb.memory = 2048
+    end
+
+    dhcpServer.vm.communicator = "winrm"
+    dhcpServer.winrm.transport = :plaintext
+    dhcpServer.winrm.basic_auth_only = true
+
+    dhcpServer.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
+    dhcpServer.vm.network "private_network",      # Challenge management network interface
+      virtualbox__intnet: "management",
+      ip: config['network']['management']['ip']['dhcpServer']
+
+    dhcpServer.vm.provision "shell", path: "Scripts/install/windows-common.ps1"
+    dhcpServer.vm.provision "shell", path: "Scripts/network/windows.ps1", run: "always", args: [
+      "-ip", config['network']['management']['ip']['dhcpServer'],
+      "-gateway", config['network']['management']['ip']['router'],
+      "-dns", config['network']['management']['ip']['domainController'],
+    ]
+    dhcpServer.vm.provision "shell", path: "Scripts/install/join-ad.ps1", args: [
+      "-domain", config['activeDirectory']['domain'],
+      "-domainControllerAddress", config['network']['management']['ip']['domainController'],
+      "-adminLogin", config['activeDirectory']['accounts'][0]['login'],
+      "-adminPassword", config['activeDirectory']['accounts'][0]['password'],
+    ]
+    dhcpServer.vm.provision "shell", reboot: true
+    dhcpServer.vm.provision "shell", path: "Scripts/install/dhcp-server.ps1", args: [
+      "-dcName", config['hostname']['domainController'].upcase,
+      "-dhcpServerName", config['hostname']['dhcpServer'] + "." + config['activeDirectory']['domain'],
+      "-adminLogin", config['activeDirectory']['accounts'][0]['login'],
+      "-adminPassword", config['activeDirectory']['accounts'][0]['password'],
+    ]
+    dhcpServer.vm.provision "shell", path: "Scripts/install/add-dhcp-scope.ps1", args: [
+      "-scopeName", config['network']['management']['dhcp']['scopeName'],
+      "-subnet", config['network']['management']['subnet'],
+      "-mask", config['network']['management']['mask'],
+      "-router", config['network']['management']['ip']['router'],
+      "-dnsServers", config['network']['management']['ip']['domainController'],
+      "-domain", config['activeDirectory']['domain'],
+      "-startRange", config['network']['management']['dhcp']['startRange'],
+      "-endRange", config['network']['management']['dhcp']['endRange'],
+      "-startExclusionRange", config['network']['management']['dhcp']['startExclusionRange'],
+      "-endExclusionRange", config['network']['management']['dhcp']['endExclusionRange'],
+    ]
+    dhcpServer.vm.provision "shell", path: "Scripts/install/add-dhcp-scope.ps1", args: [
+      "-scopeName", config['network']['user']['dhcp']['scopeName'],
+      "-subnet", config['network']['user']['subnet'],
+      "-mask", config['network']['user']['mask'],
+      "-router", config['network']['user']['ip']['router'],
+      "-dnsServers", config['network']['management']['ip']['domainController'],
+      "-domain", config['activeDirectory']['domain'],
+      "-startRange", config['network']['user']['dhcp']['startRange'],
+      "-endRange", config['network']['user']['dhcp']['endRange'],
+      "-startExclusionRange", config['network']['user']['dhcp']['startExclusionRange'],
+      "-endExclusionRange", config['network']['user']['dhcp']['endExclusionRange'],
+    ]
+  end
+
+end
