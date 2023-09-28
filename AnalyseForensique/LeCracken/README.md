@@ -31,7 +31,7 @@ Analysez les données remises par le matelot et retrouvez précisément le docum
 
 > Attention, ce challenge contient du code à visée malveillante. Bien que le concepteur ait fait de son mieux pour qu'ils soient inoffensifs, il vous appartient de prendre les précautions nécessaires à l'analyse des fichiers proposés.
 
-> `Cracken.7z` sha256: `28356457d3263a074dcc90846d766f07`
+> [Cracken.7z](https://github.com/HackademINT/404CTF-2023/releases/download/cracken/Cracken.7z) sha256: `28356457d3263a074dcc90846d766f07`
 
 Auteur: `Smyler#7078`
 
@@ -45,11 +45,11 @@ Auteur: `Smyler#7078`
 - `Network.png` schéma de l'infrastructure
 - `solve.py` script python de déchirement de l'échange entre le malware et le C2 utilisé pour testé le challenge
 
-Les fichiers binaires distribues lors du CTF sont trouvable dans les Releases GitHub.
+Les fichiers binaires distribues lors du CTF sont trouvable dans [les Releases GitHub](https://github.com/HackademINT/404CTF-2023/releases/tag/cracken).
 
 ## Writeups
 
-Il y avait plusieurs manière de résoudre le challenge, et plusieurs participants ont pris le temps d'écrire de formidable writeups assez complémentaires :
+Il y avait plusieurs manières de résoudre le challenge, et plusieurs participants ont pris le temps d'écrire de formidable writeups assez complémentaires :
 - [Narthorn](https://github.com/Narthorn/ctf/tree/master/2023-05-10_404CTF-2023/01.%20forensics/Le%20Cracken) (*la partie hardmode vaut le détour*)
 - [TaylorDeDordogne](https://nudistbeaaach.github.io/write-ups/cracken/)
 - [TechieNeurons](https://github.com/TechieNeurons/404CTF_2023_write_ups/tree/main/forensics/le_cracken)
